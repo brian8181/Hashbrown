@@ -17,7 +17,6 @@ namespace Hashbrown
         public Main()
         {
             InitializeComponent();
-
             cmbHash.Items.Add("md5");
             cmbHash.Items.Add("sha1");
             cmbHash.Items.Add("sha256");
@@ -27,15 +26,18 @@ namespace Hashbrown
         private void btnLoad_Click(object sender, EventArgs e)
         {
             OpenFileDialog dlg = new OpenFileDialog();
-
             if(dlg.ShowDialog() == DialogResult.OK)
             {
                 txtFile.Text = dlg.FileName;
-                byte[] hash = Utility.IO.FileExt.ComputeSHA1(dlg.FileName);
-                txtHash.Text = Utility.CryptoFunctions.FromBytesToHex(hash);
-              
+                SHA1 sha1 = new SHA1CryptoServiceProvider();
+                byte[] hash = sha1.ComputeHash(File.ReadAllBytes(dlg.FileName));
+                StringBuilder sb = new StringBuilder();
+                foreach (byte b in hash)
+                {
+                    sb.Append(b.ToString("x2"));
+                }
+                txtHash.Text = sb.ToString();
            }
-
          }
 
         private void btnVerify_Click(object sender, EventArgs e)
@@ -50,11 +52,6 @@ namespace Hashbrown
                 txtOutput.ForeColor = Color.Red;
                 txtOutput.Text = "Unverified";
             }
-        }
-
-        private void Main_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

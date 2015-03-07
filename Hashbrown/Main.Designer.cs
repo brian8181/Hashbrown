@@ -54,6 +54,7 @@
             // 
             // txtFile
             // 
+            this.txtFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFile.Location = new System.Drawing.Point(62, 34);
             this.txtFile.Name = "txtFile";
             this.txtFile.ReadOnly = true;
@@ -73,6 +74,7 @@
             // 
             // txtHash
             // 
+            this.txtHash.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtHash.Location = new System.Drawing.Point(62, 61);
             this.txtHash.Name = "txtHash";
             this.txtHash.ReadOnly = true;
@@ -81,6 +83,7 @@
             // 
             // txtVerify
             // 
+            this.txtVerify.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtVerify.Location = new System.Drawing.Point(62, 88);
             this.txtVerify.Name = "txtVerify";
             this.txtVerify.Size = new System.Drawing.Size(524, 20);
@@ -107,10 +110,11 @@
             // cmbHash
             // 
             this.cmbHash.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbHash.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbHash.FormattingEnabled = true;
             this.cmbHash.Location = new System.Drawing.Point(62, 6);
             this.cmbHash.Name = "cmbHash";
-            this.cmbHash.Size = new System.Drawing.Size(73, 21);
+            this.cmbHash.Size = new System.Drawing.Size(57, 21);
             this.cmbHash.TabIndex = 8;
             // 
             // label4
@@ -170,11 +174,12 @@
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.txtFile);
             this.Controls.Add(this.btnVerify);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Main";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Hashbrown";
-            this.Load += new System.EventHandler(this.Main_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
