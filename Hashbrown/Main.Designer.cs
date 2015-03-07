@@ -38,9 +38,7 @@
             this.cmbHash = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.txtOutput = new System.Windows.Forms.TextBox();
-            this.ckUpper = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // btnVerify
@@ -55,6 +53,7 @@
             // 
             // txtFile
             // 
+            this.txtFile.BackColor = System.Drawing.SystemColors.Control;
             this.txtFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFile.Location = new System.Drawing.Point(62, 34);
             this.txtFile.Name = "txtFile";
@@ -75,7 +74,8 @@
             // 
             // txtHash
             // 
-            this.txtHash.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHash.BackColor = System.Drawing.SystemColors.Control;
+            this.txtHash.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtHash.Location = new System.Drawing.Point(62, 61);
             this.txtHash.Name = "txtHash";
             this.txtHash.ReadOnly = true;
@@ -84,7 +84,8 @@
             // 
             // txtVerify
             // 
-            this.txtVerify.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtVerify.BackColor = System.Drawing.Color.White;
+            this.txtVerify.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtVerify.Location = new System.Drawing.Point(62, 88);
             this.txtVerify.Name = "txtVerify";
             this.txtVerify.Size = new System.Drawing.Size(524, 20);
@@ -136,18 +137,9 @@
             this.label3.TabIndex = 11;
             this.label3.Text = "Source:";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 118);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 13);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "Result:";
-            // 
             // txtOutput
             // 
-            this.txtOutput.BackColor = System.Drawing.Color.White;
+            this.txtOutput.BackColor = System.Drawing.SystemColors.Control;
             this.txtOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtOutput.ForeColor = System.Drawing.Color.Red;
             this.txtOutput.Location = new System.Drawing.Point(62, 115);
@@ -158,24 +150,12 @@
             this.txtOutput.Text = "Unverified";
             this.txtOutput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // ckUpper
-            // 
-            this.ckUpper.AutoSize = true;
-            this.ckUpper.Location = new System.Drawing.Point(125, 9);
-            this.ckUpper.Name = "ckUpper";
-            this.ckUpper.Size = new System.Drawing.Size(62, 17);
-            this.ckUpper.TabIndex = 14;
-            this.ckUpper.Text = "toupper";
-            this.ckUpper.UseVisualStyleBackColor = true;
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(650, 145);
-            this.Controls.Add(this.ckUpper);
             this.Controls.Add(this.txtOutput);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cmbHash);
@@ -186,7 +166,7 @@
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.txtFile);
             this.Controls.Add(this.btnVerify);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Main";
@@ -210,9 +190,7 @@
         private System.Windows.Forms.ComboBox cmbHash;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtOutput;
-        private System.Windows.Forms.CheckBox ckUpper;
     }
 }
 
