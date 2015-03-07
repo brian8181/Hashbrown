@@ -34,7 +34,15 @@ namespace Hashbrown
                 StringBuilder sb = new StringBuilder();
                 foreach (byte b in hash)
                 {
-                    sb.Append(b.ToString("x2"));
+                    if (ckUpper.Checked)
+                    {
+                        sb.Append(b.ToString("X2"));
+                    }
+                    else
+                    {
+
+                        sb.Append(b.ToString("x2"));
+                    }
                 }
                 txtHash.Text = sb.ToString();
            }
@@ -42,7 +50,7 @@ namespace Hashbrown
 
         private void btnVerify_Click(object sender, EventArgs e)
         {
-            if (txtHash.Text == txtVerify.Text)
+            if (txtHash.Text.ToLower() == txtVerify.Text.ToLower())
             {
                 txtOutput.ForeColor = Color.Green;
                 txtOutput.Text = "Verified";
@@ -52,6 +60,11 @@ namespace Hashbrown
                 txtOutput.ForeColor = Color.Red;
                 txtOutput.Text = "Unverified";
             }
+        }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

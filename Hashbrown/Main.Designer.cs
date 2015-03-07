@@ -40,6 +40,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtOutput = new System.Windows.Forms.TextBox();
+            this.ckUpper = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // btnVerify
@@ -157,11 +158,22 @@
             this.txtOutput.Text = "Unverified";
             this.txtOutput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // ckUpper
+            // 
+            this.ckUpper.AutoSize = true;
+            this.ckUpper.Location = new System.Drawing.Point(125, 9);
+            this.ckUpper.Name = "ckUpper";
+            this.ckUpper.Size = new System.Drawing.Size(62, 17);
+            this.ckUpper.TabIndex = 14;
+            this.ckUpper.Text = "toupper";
+            this.ckUpper.UseVisualStyleBackColor = true;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(650, 145);
+            this.Controls.Add(this.ckUpper);
             this.Controls.Add(this.txtOutput);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
@@ -180,6 +192,7 @@
             this.Name = "Main";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Hashbrown";
+            this.Load += new System.EventHandler(this.Main_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -199,6 +212,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtOutput;
+        private System.Windows.Forms.CheckBox ckUpper;
     }
 }
 
