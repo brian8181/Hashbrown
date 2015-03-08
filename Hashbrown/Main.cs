@@ -19,24 +19,49 @@ namespace Hashbrown
             InitializeComponent();
             cmbHash.Items.Add("md5");
             cmbHash.Items.Add("sha1");
-            cmbHash.Items.Add("sha256");
-            cmbHash.Items.Add("sha512");
+            //cmbHash.Items.Add("sha256");
+            //cmbHash.Items.Add("sha512");
+            cmbHash.SelectedIndex = 1;
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
+            byte[] hash = null;
             OpenFileDialog dlg = new OpenFileDialog();
             if(dlg.ShowDialog() == DialogResult.OK)
             {
                 txtFile.Text = dlg.FileName;
-                SHA1 sha1 = new SHA1CryptoServiceProvider();
-                byte[] hash = sha1.ComputeHash(File.ReadAllBytes(dlg.FileName));
-                StringBuilder sb = new StringBuilder();
-                foreach (byte b in hash)
+                switch (cmbHash.SelectedIndex)
                 {
-                    sb.Append(b.ToString("X2"));
+                    case 0:
+                        {
+                            MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
+                            hash = md5.ComputeHash(File.ReadAllBytes(dlg.FileName));
+                            break;
+                        }
+                    case 1:
+                        {
+                            SHA1 sha1 = new SHA1CryptoServiceProvider();
+                            hash = sha1.ComputeHash(File.ReadAllBytes(dlg.FileName));
+                            break;
+                        }
+                    default:
+                        break;
                 }
-                txtHash.Text = sb.ToString();
+
+                if (hash != null)
+                {
+                    StringBuilder sb = new StringBuilder();
+                    foreach (byte b in hash)
+                    {
+                        sb.Append(b.ToString("X2"));
+                    }
+                    txtHash.Text = sb.ToString();
+                }
+                else
+                {
+                    txtHash.Text = string.Empty;
+                }
            }
          }
 
