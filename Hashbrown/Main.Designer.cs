@@ -119,6 +119,7 @@
             this.cmbHash.Name = "cmbHash";
             this.cmbHash.Size = new System.Drawing.Size(57, 21);
             this.cmbHash.TabIndex = 8;
+            this.cmbHash.SelectedIndexChanged += new System.EventHandler(this.cmbHash_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -174,7 +175,6 @@
             this.Name = "Main";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Hashbrown";
-            this.Load += new System.EventHandler(this.Main_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

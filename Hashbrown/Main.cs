@@ -62,66 +62,52 @@ namespace Hashbrown
             {
                 txtHash.Text = string.Empty;
             }
+
+            RefreshVerify();
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
-            byte[] hash = null;
             OpenFileDialog dlg = new OpenFileDialog();
             if(dlg.ShowDialog() == DialogResult.OK)
             {
-                txtFile.Text = dlg.FileName;
-                switch (cmbHash.SelectedIndex)
-                {
-                    case 0:
-                        {
-                            MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
-                            hash = md5.ComputeHash(File.ReadAllBytes(dlg.FileName));
-                            break;
-                        }
-                    case 1:
-                        {
-                            SHA1 sha1 = new SHA1CryptoServiceProvider();
-                            hash = sha1.ComputeHash(File.ReadAllBytes(dlg.FileName));
-                            break;
-                        }
-                    default:
-                        break;
-                }
+                LoadPath(dlg.FileName);
+           }
+       }
 
-                if (hash != null)
+        private void RefreshVerify()
+        {
+            if (txtVerify.Text != string.Empty && txtHash.Text != string.Empty)
+            {
+                if (txtHash.Text.TrimEnd().ToLower() == txtVerify.Text.TrimEnd().ToLower())
                 {
-                    StringBuilder sb = new StringBuilder();
-                    foreach (byte b in hash)
-                    {
-                        sb.Append(b.ToString("X2"));
-                    }
-                    txtHash.Text = sb.ToString();
+                    txtOutput.ForeColor = Color.Green;
+                    txtOutput.Text = "Verified";
                 }
                 else
                 {
-                    txtHash.Text = string.Empty;
+                    txtOutput.ForeColor = Color.Red;
+                    txtOutput.Text = "Unverified";
                 }
-           }
-         }
-
-        private void btnVerify_Click(object sender, EventArgs e)
-        {
-            if (txtHash.Text.TrimEnd().ToLower() == txtVerify.Text.TrimEnd().ToLower())
-            {
-                txtOutput.ForeColor = Color.Green;
-                txtOutput.Text = "Verified";
-            }
-            else
-            {
-                txtOutput.ForeColor = Color.Red;
-                txtOutput.Text = "Unverified";
             }
         }
 
-        private void Main_Load(object sender, EventArgs e)
+        private void btnVerify_Click(object sender, EventArgs e)
         {
+            RefreshVerify();
+        }
 
+        private void cmbHash_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(txtFile.Text != string.Empty)
+            {
+                FileInfo fi = new FileInfo(txtFile.Text);
+                if (fi.Exists)
+                {
+                    LoadPath(fi.FullName);
+                }
+            }
+            RefreshVerify();
         }
     }
 }
