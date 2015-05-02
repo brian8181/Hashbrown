@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.btnVerify = new System.Windows.Forms.Button();
             this.txtFile = new System.Windows.Forms.TextBox();
             this.btnLoad = new System.Windows.Forms.Button();
@@ -167,6 +168,7 @@
             this.Controls.Add(this.txtFile);
             this.Controls.Add(this.btnVerify);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Main";
