@@ -14,7 +14,7 @@ namespace Hashbrown
 {
     public partial class Main : Form
     {
-        public Main()
+        public Main(string[] args)
         {
             InitializeComponent();
             cmbHash.Items.Add("md5");
@@ -22,6 +22,46 @@ namespace Hashbrown
             //cmbHash.Items.Add("sha256");
             //cmbHash.Items.Add("sha512");
             cmbHash.SelectedIndex = 1;
+
+            if(args.Length > 0 && args[0] != null)
+                LoadPath(args[0]);
+        }
+
+        private void LoadPath(string path)
+        {
+            byte[] hash = null;
+            txtFile.Text = path;
+            switch (cmbHash.SelectedIndex)
+            {
+                case 0:
+                    {
+                        MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
+                        hash = md5.ComputeHash(File.ReadAllBytes(path));
+                        break;
+                    }
+                case 1:
+                    {
+                        SHA1 sha1 = new SHA1CryptoServiceProvider();
+                        hash = sha1.ComputeHash(File.ReadAllBytes(path));
+                        break;
+                    }
+                default:
+                    break;
+            }
+
+            if (hash != null)
+            {
+                StringBuilder sb = new StringBuilder();
+                foreach (byte b in hash)
+                {
+                    sb.Append(b.ToString("X2"));
+                }
+                txtHash.Text = sb.ToString();
+            }
+            else
+            {
+                txtHash.Text = string.Empty;
+            }
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
