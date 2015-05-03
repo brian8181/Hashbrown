@@ -117,7 +117,7 @@
             this.cmbHash.FormattingEnabled = true;
             this.cmbHash.Location = new System.Drawing.Point(62, 6);
             this.cmbHash.Name = "cmbHash";
-            this.cmbHash.Size = new System.Drawing.Size(57, 21);
+            this.cmbHash.Size = new System.Drawing.Size(68, 21);
             this.cmbHash.TabIndex = 8;
             this.cmbHash.SelectedIndexChanged += new System.EventHandler(this.cmbHash_SelectedIndexChanged);
             // 

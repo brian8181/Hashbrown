@@ -19,30 +19,40 @@ namespace Hashbrown
             InitializeComponent();
             cmbHash.Items.Add("md5");
             cmbHash.Items.Add("sha1");
-            //cmbHash.Items.Add("sha256");
-            //cmbHash.Items.Add("sha512");
+            cmbHash.Items.Add("sha256");
             cmbHash.SelectedIndex = 1;
 
             if(args.Length > 0 && args[0] != null)
                 LoadPath(args[0]);
-        }
 
+            this.AllowDrop = true;
+            this.DragEnter += new DragEventHandler(Main_DragEnter);
+            this.DragDrop += new DragEventHandler(Main_DragDrop);
+        }
+        
         private void LoadPath(string path)
         {
             byte[] hash = null;
             txtFile.Text = path;
+            byte[] data = File.ReadAllBytes(path);
             switch (cmbHash.SelectedIndex)
             {
                 case 0:
                     {
                         MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
-                        hash = md5.ComputeHash(File.ReadAllBytes(path));
+                        hash = md5.ComputeHash(data);
                         break;
                     }
                 case 1:
                     {
                         SHA1 sha1 = new SHA1CryptoServiceProvider();
-                        hash = sha1.ComputeHash(File.ReadAllBytes(path));
+                        hash = sha1.ComputeHash(data);
+                        break;
+                    }
+                case 2:
+                    {
+                        SHA256 sha256 = new SHA256CryptoServiceProvider();
+                        hash = sha256.ComputeHash(data);
                         break;
                     }
                 default:
@@ -95,6 +105,17 @@ namespace Hashbrown
         private void btnVerify_Click(object sender, EventArgs e)
         {
             RefreshVerify();
+        }
+
+        private void Main_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop)) e.Effect = DragDropEffects.Copy;
+        }
+
+        private void Main_DragDrop(object sender, DragEventArgs e)
+        {
+            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+            LoadPath(files[0]);
         }
 
         private void cmbHash_SelectedIndexChanged(object sender, EventArgs e)
