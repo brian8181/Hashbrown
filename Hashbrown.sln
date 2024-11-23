@@ -1,31 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hashbrown", "Hashbrown\Hashbrown.csproj", "{1E423048-8F90-406C-88B6-14BF297F471A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "utility", "..\utility\utility\utility.csproj", "{4DFC8774-E67D-4EFF-9249-301C0D5EB158}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hashbrown", "Hashbrown\Hashbrown.csproj", "{AB3BAB61-E4D5-4788-AD96-45C9AA04B3DB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Deploy_Debug|Any CPU = Deploy_Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1E423048-8F90-406C-88B6-14BF297F471A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1E423048-8F90-406C-88B6-14BF297F471A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1E423048-8F90-406C-88B6-14BF297F471A}.Deploy_Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1E423048-8F90-406C-88B6-14BF297F471A}.Deploy_Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1E423048-8F90-406C-88B6-14BF297F471A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1E423048-8F90-406C-88B6-14BF297F471A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4DFC8774-E67D-4EFF-9249-301C0D5EB158}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4DFC8774-E67D-4EFF-9249-301C0D5EB158}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4DFC8774-E67D-4EFF-9249-301C0D5EB158}.Deploy_Debug|Any CPU.ActiveCfg = Deploy_Debug|Any CPU
-		{4DFC8774-E67D-4EFF-9249-301C0D5EB158}.Deploy_Debug|Any CPU.Build.0 = Deploy_Debug|Any CPU
-		{4DFC8774-E67D-4EFF-9249-301C0D5EB158}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4DFC8774-E67D-4EFF-9249-301C0D5EB158}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
+		{AB3BAB61-E4D5-4788-AD96-45C9AA04B3DB}.Debug|x86.ActiveCfg = Debug|x86
+		{AB3BAB61-E4D5-4788-AD96-45C9AA04B3DB}.Debug|x86.Build.0 = Debug|x86
+		{AB3BAB61-E4D5-4788-AD96-45C9AA04B3DB}.Release|x86.ActiveCfg = Release|x86
+		{AB3BAB61-E4D5-4788-AD96-45C9AA04B3DB}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 EndGlobal
